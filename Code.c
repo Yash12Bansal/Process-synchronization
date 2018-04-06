@@ -99,3 +99,4 @@ void *student3(void *p)
 	printf("Student 3 assignment is completed.\n\n");
 	//sem_post(&pen);
 	//sem_post(&paper);
+}
