@@ -13,8 +13,8 @@ void *student3(void *);
 void main()
 {
 	system("clear");
-	int s1,s2,s3;
 
+	int s1=0,s2=0,s3=0;
 	pthread_t t1,t2,t3;
 	sem_init(&pen,0,0);
 	sem_init(&paper,0,0);
@@ -23,13 +23,12 @@ void main()
 	pthread_create(&t2,NULL,student2,NULL);
 	pthread_create(&t3,NULL,student3,NULL);
 	printf("\n\n\t********WELCOME TO EXAMINATION HALL Management System*********\n\n");
-	printf("Student 1 is having pen -- Student 2 is having Paper -- Student 3 is having Ques Paper\n\n");
+	printf("Student 1 is having pen----Student 2 is having Paper----Student 3 is having Ques Paper\n\n");
 	printf("Teacher places-\n1. Paper and Ques\n2. Pen and Ques\n3. Pen and Paper\n\n");
 	while(count!=3){
-	printf("Enter What Teacher Places: ");
+	printf("Enter your choice: ");
 	scanf("%d",&a);
 	switch(a){
-			
 	case 1:	if(s1==0){
 		printf("\nStudent 1 is completing assignment..\n");
 		//sem_init(&pen,0,0);
@@ -38,7 +37,7 @@ void main()
 		count++;
 		sleep(0);
 		}
-		else printf("\nStudent 1 is already completed his assignment.\n\n");
+		else printf("\nYou cannot place Paper and Ques again.\n\n");
 		break;
 
 	case 2:	if(s2==0){
@@ -50,7 +49,7 @@ void main()
 		sleep(1);
 		}
 		else
-		printf("\nStudent 2 is already completed his assignment.\n\n");
+		printf("\nYou cannot place Pen and Ques again.\n\n");
 		break;
 
 	case 3:	if(s3==0){
@@ -61,7 +60,7 @@ void main()
 		sleep(0);
 		}
 		else
-		printf("\nStudent 3 is already completed his assignment.\n\n");
+		printf("\nYou cannot place Paper and Pen again.\n\n");
 		break;
 	
 	default: printf("\n\t\tInvalid Input.\n\t\t--Try Again--\n\n");
